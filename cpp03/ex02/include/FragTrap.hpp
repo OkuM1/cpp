@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokutucu <mokutucu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 17:43:05 by mokutucu          #+#    #+#             */
-/*   Updated: 2025/04/10 13:43:15 by mokutucu         ###   ########.fr       */
+/*   Created: 2025/04/17 14:21:14 by mokutucu          #+#    #+#             */
+/*   Updated: 2025/04/17 14:58:37 by mokutucu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Zombie.hpp"
+#ifndef FRAGTRAP_HPP
+#define FRAGTRAP_HPP
 
-Zombie* zombieHorde(int N, std::string name)
+#include "ClapTrap.hpp"
+
+class FragTrap : public ClapTrap
 {
-    if (N <= 0)
-        return NULL;
+    public:
+    // constructor
+    FragTrap(std::string name);
+    
+    FragTrap(const FragTrap &other);
+    
+    FragTrap &operator=(const FragTrap &other);
+    
+    ~FragTrap();
+    
+    void attack(const std::string& target); // Mark from virtual in ClapTrap
+    void highFivesGuys(void);
+};
 
-    Zombie* horde = new Zombie[N];
-
-    for (int i = 0; i < N; i++)
-    {
-        new (&horde[i]) Zombie(name);
-    }
-
-    return horde;
-}
+#endif

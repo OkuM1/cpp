@@ -5,20 +5,18 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mokutucu <mokutucu@student.42berlin.de>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/03/03 17:06:53 by mokutucu          #+#    #+#              #
-#    Updated: 2025/04/09 12:38:49 by mokutucu         ###   ########.fr        #
+#    Created: 2025/03/03 17:39:55 by mokutucu          #+#    #+#              #
+#    Updated: 2025/04/17 15:01:03 by mokutucu         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-
-
-NAME = megaphone
+NAME = fragtrap
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CXX = c++
 
-SRCS = megaphone.cpp
+SRCS = main.cpp src/ClapTrap.cpp src/ScavTrap.cpp src/FragTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 
@@ -30,8 +28,8 @@ $(NAME): $(OBJS)
 clean:
 	rm -rf $(OBJS)
 
-fclean:
-	rm -rf $(OBJS) $(NAME)
+fclean: clean
+	rm -rf $(NAME)
 
 re: fclean all
 

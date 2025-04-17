@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokutucu <mokutucu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 17:43:05 by mokutucu          #+#    #+#             */
-/*   Updated: 2025/04/10 13:43:15 by mokutucu         ###   ########.fr       */
+/*   Created: 2025/04/16 16:55:34 by mokutucu          #+#    #+#             */
+/*   Updated: 2025/04/17 14:17:28 by mokutucu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Zombie.hpp"
+#include "include/ClapTrap.hpp"
 
-Zombie* zombieHorde(int N, std::string name)
+//Test
+int main()
 {
-    if (N <= 0)
-        return NULL;
+    ClapTrap ClapTrap("Bob");
 
-    Zombie* horde = new Zombie[N];
+    ClapTrap.attack("enemy");
+    ClapTrap.takeDamage(5);
+    ClapTrap.beRepaired(4);
 
-    for (int i = 0; i < N; i++)
-    {
-        new (&horde[i]) Zombie(name);
-    }
-
-    return horde;
+    std::cout << "ClapTrap " << "Bob's current HP: " << ClapTrap.getHitPoints() << std::endl;
+    
+    return (0);
 }
