@@ -1,28 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mokutucu <mokutucu@student.42berlin.de>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 17:43:05 by mokutucu          #+#    #+#             */
-/*   Updated: 2025/04/10 13:43:15 by mokutucu         ###   ########.fr       */
+/*   Created: 2025/04/16 16:44:59 by mokutucu          #+#    #+#             */
+/*   Updated: 2025/04/17 19:10:22 by mokutucu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/Zombie.hpp"
+#ifndef CAT_HPP
+#define CAT_HPP
 
-Zombie* zombieHorde(int N, std::string name)
+#include "Animal.hpp"
+
+class Cat : public Animal
 {
-    if (N <= 0)
-        return NULL;
+    public:
+    // constructor
+    Cat();
+    
+    Cat(const Cat &other);
+    
+    Cat &operator=(const Cat &other);
+    
+    ~Cat();
 
-    Zombie* horde = new Zombie[N];
+    void makeSound() const;
+};
 
-    for (int i = 0; i < N; i++)
-    {
-        new (&horde[i]) Zombie(name);
-    }
-
-    return horde;
-}
+#endif
